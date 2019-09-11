@@ -16,6 +16,7 @@ export class GameBoardComponent implements OnInit {
     symbol: string
   };
   playing: boolean;
+  draw: boolean;
   currentPlayer: {
     name: string,
     symbol: string
@@ -38,6 +39,7 @@ export class GameBoardComponent implements OnInit {
     ];
     this.winner = null;
     this.playing = true;
+    this.draw = false;
     this.currentPlayer = this.PlayerOne;
   }
 
@@ -54,15 +56,21 @@ export class GameBoardComponent implements OnInit {
     if(this.checkWin(player.symbol)) 
       //Handles win if somebody won
       this.handleWin(player);
-    // else if(!this.anyMovesLeft())
-    //   // Handles if there are no moves left
-    //   console.log(`Draw. Game Over`);
+    else if(this.boardFull())
+      // Handles if there are no moves left
+      this.handleDraw();
     else {  
       //Switches players if game is not over
       this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
     }
   }
 
+  // Checks if board is full
+  boardFull(): boolean {
+    return this.board.filter(s => s.value == '').length == 0;
+  }
+
+  // Checks if a player won
   checkWin(symbol): boolean {
     const possibleWins = [
       [0, 1, 2],  //top row
@@ -94,10 +102,12 @@ export class GameBoardComponent implements OnInit {
 
   handleWin(winner) {
     this.playing = false;
-    this.latestWinner = winner;
+    this.latestWinner = winner; 
+  }
 
-    // if(winner !== this.DRAW)
-    //   this.currentPlayer = winner;  
+  handleDraw() {
+    this.playing = false;
+    this.draw = true;
   }
 
 

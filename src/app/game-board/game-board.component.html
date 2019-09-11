@@ -1,6 +1,7 @@
-<h2 *ngIf="playing">{{ currentPlayer.symbol }}'s Turn</h2>
-<h2 *ngIf="!playing">Congratulations {{ latestWinner.name }}!</h2>
-<h2 *ngIf="!playing">{{ latestWinner.symbol }} Wins!</h2>
+<h2 *ngIf="playing">{{ currentPlayer.symbol }}'s Turn.</h2>
+<h2 *ngIf="!playing && !draw">Congratulations {{ latestWinner.name }}!</h2>
+<h2 *ngIf="draw">Draw.</h2>
+
 
 <div class="game">
   <div class="board">
