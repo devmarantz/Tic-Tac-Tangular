@@ -12,7 +12,10 @@ export class GameBoardComponent implements OnInit {
   board: string[];
   winner: string;
   playing: boolean;
-  currentPlayer: object;
+  currentPlayer: {
+    name: string,
+    symbol: string
+  };
 
   constructor() { }
 
@@ -32,9 +35,14 @@ export class GameBoardComponent implements OnInit {
     this.winner = null;
     this.playing = true;
     this.currentPlayer = this.PlayerOne;
+  }
 
-    
-
+  // Handles when square is clicked
+  clickSquare(square) {
+    if(square.value === '' && this.playing) {
+      square.value = this.currentPlayer.symbol;
+      // this.completeMove(this.PLAYER_HUMAN);
+    }
   }
 
 }

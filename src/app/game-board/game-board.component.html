@@ -2,58 +2,58 @@
 <h2 *ngIf="!playing">{{currentPlayer.name}} Wins!</h2>
 
 <div class="board">
-    <div class="square00"
-      [class.locked]="square00.value != ''" 
-      [class.winner]="square00.winner"
-      (click)="clickSquare(this.square00)">
-      {{square00.value}}
+    <div class="square top left"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square01"
-      [class.locked]="square01.value != ''" 
-      [class.winner]="square01.winner"
-      (click)="clickSquare(this.square01)">
-      {{square01.value}}
+    <div class="square top"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square02"
-      [class.locked]="square02.value != ''" 
-      [class.winner]="square02.winner"
-      (click)="clickSquare(this.square02)">
-      {{square02.value}}
+    <div class="square top right"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square10"
-      [class.locked]="square10.value != ''" 
-      [class.winner]="square10.winner"
-      (click)="clickSquare(this.square10)">
-      {{square10.value}}
+    <div class="square left"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square11"
-      [class.locked]="square11.value != ''" 
-      [class.winner]="square11.winner"
-      (click)="clickSquare(this.square11)">
-      {{square11.value}}
+    <div class="square"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square12"
-      [class.locked]="square12.value != ''" 
-      [class.winner]="square12.winner"
-      (click)="clickSquare(this.square12)">
-      {{square12.value}}
+    <div class="square right"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square20"
-      [class.locked]="square20.value != ''" 
-      [class.winner]="square20.winner"
-      (click)="clickSquare(this.square20)">
-      {{square20.value}}
+    <div class="square bottom left"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square21"
-      [class.locked]="square21.value != ''" 
-      [class.winner]="square21.winner"
-      (click)="clickSquare(this.square21)">
-      {{square21.value}}
+    <div class="square bottom"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
-    <div class="square22"
-      [class.locked]="square22.value != ''" 
-      [class.winner]="square22.winner"
-      (click)="clickSquare(this.square22)">
-      {{square22.value}}
+    <div class="square bottom right"
+      [class.locked]="square.value != ''" 
+      [class.winner]="square.winner"
+      (click)="clickSquare(this.square)">
+      {{square.value}}
     </div>
 </div>
