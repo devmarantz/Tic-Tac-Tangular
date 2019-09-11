@@ -34,16 +34,32 @@ export class GameBoardComponent implements OnInit {
     ];
     this.winner = null;
     this.playing = true;
-    this.currentPlayer = this.PlayerTwo;
+    this.currentPlayer = this.PlayerOne;
   }
 
   // Handles when square is clicked
   clickSquare(square) {
     if(square.value === '' && this.playing) {
       square.value = this.currentPlayer.symbol;
-      console.log(square);
-      // this.completeMove(this.PLAYER_HUMAN);
+      this.handleMove(this.currentPlayer);
     }
   }
+
+  // Handles Move made by a player
+  handleMove(player) {
+    // if(this.checkWin(player.symbol)) 
+    //   //Handles win if somebody won
+    //   console.log(`${player.name} wins!`);
+    // else if(!this.anyMovesLeft())
+    //   // Handles if there are no moves left
+    //   console.log(`Draw. Game Over`);
+    // else {  
+      // Switches players if game is not over
+      this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
+    // }
+
+  }
+
+
 
 }
