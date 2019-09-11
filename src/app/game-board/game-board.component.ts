@@ -34,7 +34,7 @@ export class GameBoardComponent implements OnInit {
     ];
     this.winner = null;
     this.playing = true;
-    this.currentPlayer = this.PlayerOne;
+    this.currentPlayer = this.PlayerTwo;
   }
 
   // Handles when square is clicked
