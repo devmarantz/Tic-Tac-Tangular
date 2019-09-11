@@ -47,17 +47,45 @@ export class GameBoardComponent implements OnInit {
 
   // Handles Move made by a player
   handleMove(player) {
-    // if(this.checkWin(player.symbol)) 
-    //   //Handles win if somebody won
-    //   console.log(`${player.name} wins!`);
+    if(this.checkWin(player.symbol)) 
+      //Handles win if somebody won
+      console.log(`${player.name} wins!`);
     // else if(!this.anyMovesLeft())
     //   // Handles if there are no moves left
     //   console.log(`Draw. Game Over`);
-    // else {  
-      // Switches players if game is not over
+    else {  
+      //Switches players if game is not over
       this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
-    // }
+    }
+  }
 
+  checkWin(symbol): boolean {
+    const possibleWins = [
+      [0, 1, 2],  //top row
+      [3, 4, 5],  //middle row
+      [6, 7, 8],  //bottom row
+      [0, 3, 6],  //first col
+      [1, 4, 7],  //second col
+      [2, 5, 8],  //third col
+      [0, 4, 8],  //diagonal top left to bottom right
+      [2, 4, 6]   //diagonal bottom left to top right
+    ]
+    for(let pattern of possibleWins) {
+      // Sets foundWinner if all three pattern indexs match a given symbol
+      const foundWinner = this.board[pattern[0]].value == symbol
+        && this.board[pattern[1]].value == symbol
+        && this.board[pattern[2]].value == symbol;
+
+      if(foundWinner) {
+        // Gives winning indexs a "winner" attribute
+        for(let index of pattern) {
+          this.board[index].winner = true;
+        }
+        return true;
+      }
+    }
+
+    return false;
   }
 
 

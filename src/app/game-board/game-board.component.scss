@@ -87,3 +87,17 @@ h2{
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.square .O.winner {
+  border: 22px solid rgb(59, 173, 59);
+}
+
+.square .X.winner:before, .square .X.winner:after {
+  background-color:  rgb(59, 173, 59);
+}
+
+// .square .O.winner, .square .X.winner {
+//   -webkit-animation: blink .3s steps(1) 3;
+//   -moz-animation: blink .3s steps(1) 3;
+//   animation: blink .3s steps(1) 3;
+// }
