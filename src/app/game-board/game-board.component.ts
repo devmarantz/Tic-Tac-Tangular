@@ -11,6 +11,10 @@ export class GameBoardComponent implements OnInit {
 
   board: any[];
   winner: string;
+  latestWinner: {
+    name: string,
+    symbol: string
+  };
   playing: boolean;
   currentPlayer: {
     name: string,
@@ -49,7 +53,7 @@ export class GameBoardComponent implements OnInit {
   handleMove(player) {
     if(this.checkWin(player.symbol)) 
       //Handles win if somebody won
-      console.log(`${player.name} wins!`);
+      this.handleWin(player);
     // else if(!this.anyMovesLeft())
     //   // Handles if there are no moves left
     //   console.log(`Draw. Game Over`);
@@ -86,6 +90,14 @@ export class GameBoardComponent implements OnInit {
     }
 
     return false;
+  }
+
+  handleWin(winner) {
+    this.playing = false;
+    this.latestWinner = winner;
+
+    // if(winner !== this.DRAW)
+    //   this.currentPlayer = winner;  
   }
 
 
