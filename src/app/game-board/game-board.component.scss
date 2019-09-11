@@ -1,4 +1,18 @@
+h2{
+  text-align: center;
+}
+
 .board{
   width: 600px;
   height: 600px;
+  margin: auto;
+}
+
+.square {
+  float: left;
+  width: 33.333333333%;
+  height: 33.333333333%;
+  border-width: 5px;
+  border-color: rgb(46, 46, 46);
+  cursor: pointer;
 }
