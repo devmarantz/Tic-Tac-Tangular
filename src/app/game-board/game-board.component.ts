@@ -9,7 +9,7 @@ export class GameBoardComponent implements OnInit {
   PlayerOne = { name: "Player 1", symbol: 'X'};
   PlayerTwo = { name: "Player 2", symbol: 'O'};
 
-  board: string[];
+  board: any[];
   winner: string;
   playing: boolean;
   currentPlayer: {
@@ -28,9 +28,9 @@ export class GameBoardComponent implements OnInit {
 
     // Create board and start game states
     this.board = [
-      '', '', '',
-      '', '', '',
-      '', '', '',
+      { value: '' }, { value: '' }, { value: '' },
+      { value: '' }, { value: '' }, { value: '' },
+      { value: '' }, { value: '' }, { value: '' }
     ];
     this.winner = null;
     this.playing = true;
@@ -41,6 +41,7 @@ export class GameBoardComponent implements OnInit {
   clickSquare(square) {
     if(square.value === '' && this.playing) {
       square.value = this.currentPlayer.symbol;
+      console.log(square);
       // this.completeMove(this.PLAYER_HUMAN);
     }
   }
