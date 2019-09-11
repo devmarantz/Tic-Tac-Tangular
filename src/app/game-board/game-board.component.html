@@ -1,1 +1,20 @@
-<p>I am a game board!</p>
+<h2 *ngIf="playing">{{ currentPlayer.name }}'s Turn</h2>
+<h2 *ngIf="!playing">{{currentPlayer.name}} Wins!</h2>
+
+<div class="board">
+  <div class="row0">
+    <div class="square00"></div>
+    <div class="square01"></div>
+    <div class="square02"></div>
+  </div>
+  <div class="row1">
+    <div class="square10"></div>
+    <div class="square11"></div>
+    <div class="square12"></div>
+  </div>
+  <div class="row2">
+    <div class="square20"></div>
+    <div class="square21"></div>
+    <div class="square22"></div>
+  </div>
+</div>
