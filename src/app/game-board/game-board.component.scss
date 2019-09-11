@@ -8,6 +8,19 @@ h2{
   margin: auto;
 }
 
+.resetButton{
+  display: block;
+  margin: auto;
+  margin-top: 12px;
+  padding: 9px;
+  border-radius: 4px;
+  color: white;
+  background-color: #272727;
+  box-shadow: 2px 2px rgba(0,0,0,0.1);
+  font-size: 23px;
+  width: 12rem;
+}
+
 .square {
   float: left;
   width: 33.333333333%;
@@ -30,10 +43,12 @@ h2{
 
 .square.top {
   border-bottom-style: solid;
+  height: 32%;
 }
 
 .square.bottom {
   border-top-style: solid;
+  height: 32%;
 }
 
 .square .X, .square .O {

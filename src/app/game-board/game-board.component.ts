@@ -24,11 +24,11 @@ export class GameBoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.playGame();
+    this.resetGame();
   }
 
   // Intializes game
-  playGame() {
+  resetGame() {
 
     // Create board and start game states
     this.board = [
