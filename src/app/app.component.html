@@ -1,3 +1,7 @@
+<div class="outer" [class.toggleOuter]="darkMode">
+  <div class="inner"  [class.toggleInner]="darkMode" (click)="handleInner()"></div>
+</div>
+
 <h2 class="title">Tic-Tac-Tangular</h2>
 <p class="description">A family classic on a modern framework</p>
 <app-game-board></app-game-board>
