@@ -23,6 +23,7 @@ export class GameBoardComponent implements OnInit {
   // Intializes game
   playGame() {
 
+    // Create board and start game states
     this.board = [
       '', '', '',
       '', '', '',
@@ -30,8 +31,9 @@ export class GameBoardComponent implements OnInit {
     ];
     this.winner = null;
     this.playing = true;
-
     this.currentPlayer = this.PlayerOne;
+
+    
 
   }
 
