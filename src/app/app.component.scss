@@ -1,17 +1,37 @@
+.app{
+  background-color: white;
+  color: #1a1a1a;
+  height: 100vh;
+}
+
+.darkMode{
+  background-color: white;
+  height: 100vh;
+  filter: invert(100%);
+}
+
+
+
 h2, p{
   text-align: center;
 }
 
-.title{
+.gameTitle{
   font-size: 69px;
-  margin-top: 2rem;
+  margin-top: -2rem;
   margin-bottom: 0rem;
+  color: #1a1a1a;
 }
 
 .description{
   font-size: 30px;
   margin-top: 0rem;
   margin-bottom: 1.2rem;
+  color: #1a1a1a;
+}
+
+.darkModeToggle{
+  padding: 2rem 2rem;
 }
 
 .outer{

@@ -1,7 +1,11 @@
-<div class="outer" [class.toggleOuter]="darkMode">
-  <div class="inner"  [class.toggleInner]="darkMode" (click)="handleInner()"></div>
+<div [class.app]="!darkMode" [class.darkMode]="darkMode">
+  <div class="darkModeToggle">
+    <div class="outer" [class.toggleOuter]="darkMode">
+      <div class="inner"  [class.toggleInner]="darkMode" (click)="handleInner()"></div>
+    </div>
+  </div>
+  
+  <h2 class="gameTitle">Tic-Tac-Tangular</h2>
+  <p class="description">A family classic on a modern framework</p>
+  <app-game-board></app-game-board>
 </div>
-
-<h2 class="title">Tic-Tac-Tangular</h2>
-<p class="description">A family classic on a modern framework</p>
-<app-game-board></app-game-board>

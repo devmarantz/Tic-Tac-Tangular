@@ -2,6 +2,7 @@ h2{
   text-align: center;
   margin-bottom: 10px;
   font-size: 22px;
+  color: #1a1a1a;
 }
 
 .board{
@@ -10,18 +11,28 @@ h2{
   margin: auto;
 }
 
+.disable-text-selection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .resetButton{
   display: block;
   margin: auto;
+  margin-top: 15px;
   margin-bottom: 27px;
   padding: 9px;
   border-radius: 4px;
   color: white;
-  background-color: #272727;
+  background-color: #1a1a1a;
   box-shadow: 2px 2px rgba(0,0,0,0.1);
   font-size: 19px;
   font-family: 'Righteous', cursive;
-  width: 12rem;
+  width: 600px;
 }
 
 .square {
@@ -29,7 +40,7 @@ h2{
   width: 33.333333333%;
   height: 33.333333333%;
   border-width: 5px;
-  border-color: rgb(46, 46, 46);
+  border-color: #1a1a1a;
   cursor: pointer;
 }
 
@@ -72,7 +83,7 @@ h2{
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 22px solid rgb(46, 46, 46);
+  border: 22px solid #1a1a1a;
 }
 
 .X {
@@ -84,7 +95,7 @@ h2{
   position: absolute;
   content: "";
   display: block;
-  background-color: rgb(46, 46, 46);
+  background-color: #1a1a1a;
   left: 90px;
   top: 20px;
   width: 20px;
