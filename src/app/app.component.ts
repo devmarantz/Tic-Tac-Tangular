@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tic-tac-tangular';
+  darkMode = false; 
+
+
+  handleInner() {
+    this.darkMode = !this.darkMode;
+  };
 }

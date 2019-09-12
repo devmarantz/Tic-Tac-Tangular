@@ -2,11 +2,8 @@
 <h2 *ngIf="!playing && !draw">Congratulations {{ latestWinner.name }}!</h2>
 <h2 *ngIf="draw">Draw.</h2>
 
-<button class="resetButton" *ngIf="!playing" (click)="resetGame()">Play Again?</button>
-
-
 <div class="game">
-  <div class="board">
+  <div class="board disable-text-selection">
       <div class="square top left"
         [class.locked]="board[0].value != ''" 
         (click)="clickSquare(board[0])"
@@ -72,3 +69,4 @@
       </div>
   </div>
 </div>
+<button class="resetButton" *ngIf="!playing" (click)="resetGame()">Play Again?</button>
