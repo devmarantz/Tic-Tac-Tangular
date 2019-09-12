@@ -11,6 +11,7 @@ export class GameBoardComponent implements OnInit {
   PlayerTwo = { name: "Player 2", symbol: 'O'};
 
   board: any[];
+  firstGame: boolean;
   winner: string;
   latestWinner: {
     name: string,
@@ -26,18 +27,22 @@ export class GameBoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.firstGame = true;
     this.resetGame();
   }
 
   // Intializes game
   resetGame() {
-
+    if(!this.firstGame){
+      this.playSound('restart');
+    }
     // Create board and start game states
     this.board = [
       { value: '' }, { value: '' }, { value: '' },
       { value: '' }, { value: '' }, { value: '' },
       { value: '' }, { value: '' }, { value: '' }
     ];
+    this.firstGame = false;
     this.winner = null;
     this.playing = true;
     this.draw = false;
@@ -62,6 +67,11 @@ export class GameBoardComponent implements OnInit {
       this.handleDraw();
     else {  
       //Switches players if game is not over
+      if(player.name == "Player 1"){
+        this.playSound('blip1');
+      } else{
+        this.playSound('blip2');
+      }
       this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
     }
   }
@@ -102,15 +112,19 @@ export class GameBoardComponent implements OnInit {
   }
 
   handleWin(winner) {
+    this.playSound('win');
     this.playing = false;
     this.latestWinner = winner; 
   }
 
   handleDraw() {
+    this.playSound('draw');
     this.playing = false;
     this.draw = true;
   }
 
-
-
+  playSound(sound) {
+    sound = "../assets/sounds/" + sound + ".wav";
+    sound && ( new Audio(sound) ).play()
+  }
 }
