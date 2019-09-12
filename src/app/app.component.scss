@@ -7,6 +7,7 @@
 .darkMode{
   background-color: white;
   height: 100vh;
+  overflow: auto;
   filter: invert(100%);
 }
 
@@ -85,4 +86,79 @@ h2, p{
 
 .toggleOuter{
   background-color: grey;
+}
+
+@media all and (max-width: 890px) {
+  .titleBorder{
+    width: 32rem;
+    height: 6.5rem;
+  }
+  .gameTitle{
+    font-size: 52px;
+  }
+  .description{
+    font-size: 22px;
+  }
+}
+
+@media all and (max-width: 730px) {
+  .darkModeToggle {
+    padding: 1rem 1rem;
+    height: 2rem;
+  }
+  .titleBorder{
+    margin-top: 0rem;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .titleBorder{
+    width: 90%;
+    height: 6rem;
+  }
+  .gameTitle{
+    font-size: 47px;
+  }
+  .description{
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .darkModeToggle {
+    height: 25px;
+  }
+  .titleBorder{
+    height: 5rem;
+  }
+  .gameTitle{
+    font-size: 38px;
+  }
+  .description{
+    font-size: 16px;
+  }
+  .outer{
+    width: 48px;
+    height: 27px;
+  }
+  .inner{
+    width: 23px;
+    height: 23px;
+    top: 6%;
+  }
+  .toggleInner{
+    transform: translateX(21px);
+  }
+}
+
+@media all and (max-width: 360px) {
+  .titleBorder{
+    height: 4rem;
+  }
+  .gameTitle{
+    font-size: 32px;
+  }
+  .description{
+    font-size: 13px;
+  }
 }
