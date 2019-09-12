@@ -40,6 +40,10 @@ h2{
   cursor: pointer;
 }
 
+.square:focus {
+  outline: none;
+}
+
 .square.left {
   clear: both;
   border-right-style: solid;
