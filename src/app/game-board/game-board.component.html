@@ -3,7 +3,7 @@
 <h2 *ngIf="draw">Draw.</h2>
 
 <div class="game">
-  <div class="board disable-text-selection">
+  <div class="board">
       <div class="square top left"
         [class.locked]="board[0].value != ''" 
         (click)="clickSquare(board[0])"

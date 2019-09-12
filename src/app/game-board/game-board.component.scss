@@ -11,14 +11,6 @@ h2{
   margin: auto;
 }
 
-.disable-text-selection {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 .resetButton{
   display: block;
@@ -130,3 +122,12 @@ h2{
 //   -moz-animation: blink .3s steps(1) 3;
 //   animation: blink .3s steps(1) 3;
 // }
+
+@media all and (max-width: 500px) {
+  .headerLogo {
+    margin-left: 0;
+  }
+  .socialIcons{
+    margin-right: 0;
+  }
+}
