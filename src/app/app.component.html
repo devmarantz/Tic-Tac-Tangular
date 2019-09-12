@@ -5,7 +5,9 @@
     </div>
   </div>
   
-  <h2 class="gameTitle">Tic-Tac-Tangular</h2>
-  <p class="description">A family classic on a modern framework</p>
+  <div class="titleBorder" [class.titleBorderDark]="darkMode">
+    <h2 class="gameTitle" [class.titleDark]="darkMode">Tic-Tac-Tangular</h2>
+    <p class="description" [class.titleDark]="darkMode">A family classic on a modern framework</p>
+  </div>
   <app-game-board></app-game-board>
 </div>
