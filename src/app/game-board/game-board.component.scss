@@ -125,33 +125,34 @@ h2{
 
 @media all and (max-width: 890px) {
   h2{
-    margin-bottom: 10px;
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 730px) {
+  h2{
+    margin-bottom: 25px;
     font-size: 20px;
   }
   .board{
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
   }
   .resetButton{
-    margin-top: 15px;
-    margin-bottom: 27px;
-    padding: 9px;
-    font-size: 19px;
-    width: 600px;
+    margin-top: 25px;
+    width: 500px;
   }
   .X:before, .X:after {
-    left: 90px;
-    top: 20px;
-    width: 20px;
-    height: 160px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    left: 75px;
+    top: 21px;
+    width: 18px;
+    height: 127px;
+    border-radius: 3px;
   }
   .O {
-    border: 22px solid #1a1a1a;
+    border: 16px solid #1a1a1a;
   }
   .square .O.winner {
-    border: 22px solid rgb(59, 173, 59);
+    border: 16px solid rgb(59, 173, 59);
   }
 }
