@@ -86,3 +86,16 @@ h2, p{
 .toggleOuter{
   background-color: grey;
 }
+
+@media all and (max-width: 890px) {
+  .titleBorder{
+    width: 32rem;
+    height: 6.5rem;
+  }
+  .gameTitle{
+    font-size: 52px;
+  }
+  .description{
+    font-size: 22px;
+  }
+}

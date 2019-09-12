@@ -123,11 +123,35 @@ h2{
 //   animation: blink .3s steps(1) 3;
 // }
 
-@media all and (max-width: 500px) {
-  .headerLogo {
-    margin-left: 0;
+@media all and (max-width: 890px) {
+  h2{
+    margin-bottom: 10px;
+    font-size: 20px;
   }
-  .socialIcons{
-    margin-right: 0;
+  .board{
+    width: 600px;
+    height: 600px;
+  }
+  .resetButton{
+    margin-top: 15px;
+    margin-bottom: 27px;
+    padding: 9px;
+    font-size: 19px;
+    width: 600px;
+  }
+  .X:before, .X:after {
+    left: 90px;
+    top: 20px;
+    width: 20px;
+    height: 160px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .O {
+    border: 22px solid #1a1a1a;
+  }
+  .square .O.winner {
+    border: 22px solid rgb(59, 173, 59);
   }
 }
