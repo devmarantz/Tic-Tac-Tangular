@@ -106,14 +106,19 @@ h2, p{
     height: 2rem;
   }
   .titleBorder{
-    width: 32rem;
-    height: 6.5rem;
     margin-top: 0rem;
   }
+}
+
+@media all and (max-width: 560px) {
+  .titleBorder{
+    width: 90%;
+    height: 6rem;
+  }
   .gameTitle{
-    font-size: 52px;
+    font-size: 47px;
   }
   .description{
-    font-size: 22px;
+    font-size: 20px;
   }
 }

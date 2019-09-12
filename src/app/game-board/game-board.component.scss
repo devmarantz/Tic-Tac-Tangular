@@ -132,7 +132,6 @@ h2{
 @media all and (max-width: 730px) {
   h2{
     margin-bottom: 25px;
-    font-size: 20px;
   }
   .board{
     width: 500px;
@@ -154,5 +153,32 @@ h2{
   }
   .square .O.winner {
     border: 16px solid rgb(59, 173, 59);
+  }
+}
+
+@media all and (max-width: 560px) {
+  h2{
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .board{
+    width: 400px;
+    height: 400px;
+  }
+  .resetButton{
+    margin-top: 25px;
+    width: 400px;
+  }
+  .X:before, .X:after {
+    left: 58px;
+    top: 12px;
+    width: 17px;
+    height: 110px;
+  }
+  .O {
+    border: 14px solid #1a1a1a;
+  }
+  .square .O.winner {
+    border: 14px solid rgb(59, 173, 59);
   }
 }
