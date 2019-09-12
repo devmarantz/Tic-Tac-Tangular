@@ -71,6 +71,9 @@ h2{
   animation: appear .2s cubic-bezier(.5,1.8,.1,1.1);
 }
 
+@keyframes appear{from{transform:scale(.3)}to{transform:scale(1)}};
+
+
 .O {
   left: 14%;
   top: 15%;
