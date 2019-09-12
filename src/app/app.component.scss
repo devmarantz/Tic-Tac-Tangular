@@ -122,3 +122,30 @@ h2, p{
     font-size: 20px;
   }
 }
+
+@media all and (max-width: 450px) {
+  .darkModeToggle {
+    height: 25px;
+  }
+  .titleBorder{
+    height: 5rem;
+  }
+  .gameTitle{
+    font-size: 38px;
+  }
+  .description{
+    font-size: 16px;
+  }
+  .outer{
+    width: 48px;
+    height: 27px;
+  }
+  .inner{
+    width: 23px;
+    height: 23px;
+    top: 6%;
+  }
+  .toggleInner{
+    transform: translateX(21px);
+  }
+}

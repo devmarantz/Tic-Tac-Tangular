@@ -182,3 +182,35 @@ h2{
     border: 14px solid rgb(59, 173, 59);
   }
 }
+
+@media all and (max-width: 450px) {
+  h2{
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+  .board{
+    width: 300px;
+    height: 300px;
+  }
+  .resetButton{
+    width: 300px;
+  }
+  .square.top {
+    height: 31%;
+  }
+  .square.left {
+      width: 31%;
+  }
+  .X:before, .X:after {
+    left: 43px;
+    top: 8px;
+    width: 13px;
+    height: 85px;
+  }
+  .O {
+    border: 11px solid #1a1a1a;
+  }
+  .square .O.winner {
+    border: 11px solid rgb(59, 173, 59);
+  }
+}
