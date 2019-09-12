@@ -214,3 +214,9 @@ h2{
     border: 11px solid rgb(59, 173, 59);
   }
 }
+
+@media all and (max-width: 450px) {
+  .resetButton{
+    margin-top: 17px;
+  }
+}
