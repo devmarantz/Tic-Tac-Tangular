@@ -176,11 +176,13 @@ export class GameBoardComponent implements OnInit {
         index: null,
         score: null
       };
-      move.index = newBoard[availSpots[i]].value;
-
+  
+      // move.index = newBoard[availSpots[i]];
+      move.index = availSpots[i];
+  
       // set the empty spot to the current player
       newBoard[availSpots[i]].value = player;
-
+  
       //if collect the score resulted from calling minimax on the opponent of the current player
       if (player == 'X'){
         var result = this.minimax(newBoard, 'O');
@@ -190,10 +192,10 @@ export class GameBoardComponent implements OnInit {
         var result = this.minimax(newBoard, 'X');
         move.score = result.score;
       }
-
+  
       //reset the spot to empty
-      newBoard[availSpots[i]].value = move.index;
-
+      newBoard[availSpots[i]].value = '';
+  
       // push the object to the array
       moves.push(move);
     }
@@ -234,9 +236,12 @@ export class GameBoardComponent implements OnInit {
    * 
    */
   emptyIndexes(board){
-    // console.log('\nThese are the empty idexes');
-    // console.log(board.filter(s => s != "O" && s != "X"));
-    // console.log(`\n\n`);
-    return  board.filter(s => s != "O" && s != "X");
+    const indexes = [];
+    board.forEach((object, i) => {
+      if(object.value == '' ){
+        indexes.push(i);
+      }
+    });
+    return  indexes;
   }
 }
