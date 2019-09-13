@@ -151,7 +151,7 @@ export class GameBoardComponent implements OnInit {
    */
   minimax(newBoard, player){
     //available spots
-    var availSpots = emptyIndexies(newBoard);
+    var availSpots = this.emptyIndexes(newBoard);
 
     // checks for the terminal states such as win, lose, and tie and returning a value accordingly
     // This is for the recursive function
@@ -176,10 +176,10 @@ export class GameBoardComponent implements OnInit {
         index: null,
         score: null
       };
-      move.index = newBoard[availSpots[i]];
+      move.index = newBoard[availSpots[i]].value;
 
       // set the empty spot to the current player
-      newBoard[availSpots[i]] = player;
+      newBoard[availSpots[i]].value = player;
 
       //if collect the score resulted from calling minimax on the opponent of the current player
       if (player == 'X'){
@@ -192,7 +192,7 @@ export class GameBoardComponent implements OnInit {
       }
 
       //reset the spot to empty
-      newBoard[availSpots[i]] = move.index;
+      newBoard[availSpots[i]].value = move.index;
 
       // push the object to the array
       moves.push(move);
@@ -230,10 +230,10 @@ export class GameBoardComponent implements OnInit {
   // TODO: Rewrite this to take in a a board Object[] and return an array with the indexes that are empty
   /**
    * Returns an array of the empty indexes
-   * @param {string[]} board - 
+   * @param {string[]} board - Any board
    * 
    */
-  function emptyIndexies(board){
+  emptyIndexes(board){
     // console.log('\nThese are the empty idexes');
     // console.log(board.filter(s => s != "O" && s != "X"));
     // console.log(`\n\n`);
