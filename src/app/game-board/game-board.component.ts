@@ -18,6 +18,7 @@ export class GameBoardComponent implements OnInit {
     symbol: string
   };
   playing: boolean;
+  locked: boolean;
   draw: boolean;
   currentPlayer: {
     name: string,
@@ -60,15 +61,17 @@ export class GameBoardComponent implements OnInit {
     this.firstGame = false;
     this.winner = null;
     this.playing = true;
+    this.locked = false;
     this.draw = false;
     this.currentPlayer = this.PlayerOne;
   }
 
   // Handles when square is clicked
   clickSquare(square) {
-    if(square.value === '' && this.playing) {
+    if(square.value === '' && this.playing && !this.locked) {
       if(this.currentPlayer.name == "Player 1"){
         this.playSound('blip1');
+        this.locked = true;
       } else{
         this.playSound('blip2');
       }
@@ -90,7 +93,9 @@ export class GameBoardComponent implements OnInit {
       // this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
       // Makes a computers move if game is not over
       if(player.name == "Player 1"){
-        setTimeout(() => this.makeComputerMove(), 200);
+        setTimeout(() => {
+          this.makeComputerMove();
+        }, 500);
       } else {
         this.currentPlayer = this.PlayerOne;
       }
@@ -109,6 +114,7 @@ export class GameBoardComponent implements OnInit {
 
     if(bestIndex.index != null){
       this.currentPlayer = this.PlayerTwo;
+      this.locked = false;
       this.clickSquare(this.board[bestIndex.index]);
       console.log(this.board);
     }
