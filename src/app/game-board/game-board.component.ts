@@ -155,10 +155,10 @@ export class GameBoardComponent implements OnInit {
 
     // // checks for the terminal states such as win, lose, and tie and returning a value accordingly
     // // TODO: plug in check win
-    if (winning(newBoard, huPlayer)){
+    if (this.checkWin('O')){
       return {score:-10};
     }
-    else if (winning(newBoard, aiPlayer)){
+    else if (this.checkWin('X')){
       return {score:10};
     }
     else if (availSpots.length === 0){
