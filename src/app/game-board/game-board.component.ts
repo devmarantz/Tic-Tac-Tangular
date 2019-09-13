@@ -142,7 +142,7 @@ export class GameBoardComponent implements OnInit {
     this.audio[sound].play()
   }
 
-  // the main minimax function
+  // AI for Computer moves
   // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
   /**
    * Returns an object that has the index of the best move
@@ -153,8 +153,8 @@ export class GameBoardComponent implements OnInit {
     //available spots
     var availSpots = emptyIndexies(newBoard);
 
-    // // checks for the terminal states such as win, lose, and tie and returning a value accordingly
-    // // TODO: plug in check win
+    // checks for the terminal states such as win, lose, and tie and returning a value accordingly
+    // This is for the recursive function
     if (this.checkWin('O')){
       return {score:-10};
     }
@@ -172,19 +172,22 @@ export class GameBoardComponent implements OnInit {
     // Pushes all available moves into the moves array
     for (var i = 0; i < availSpots.length; i++){
       //create an object for each and store the index of that spot that was stored as a number in the object's index key
-      var move = {};
+      var move = {
+        index: null,
+        score: null
+      };
       move.index = newBoard[availSpots[i]];
 
       // set the empty spot to the current player
       newBoard[availSpots[i]] = player;
 
       //if collect the score resulted from calling minimax on the opponent of the current player
-      if (player == aiPlayer){
-        var result = minimax(newBoard, huPlayer);
+      if (player == 'X'){
+        var result = this.minimax(newBoard, 'O');
         move.score = result.score;
       }
       else{
-        var result = minimax(newBoard, aiPlayer);
+        var result = this.minimax(newBoard, 'X');
         move.score = result.score;
       }
 
@@ -199,7 +202,7 @@ export class GameBoardComponent implements OnInit {
     // Returns the best possible move for either X or O
     // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
     var bestMove;
-    if(player === aiPlayer){
+    if(player === 'X'){
       // if it is the computer's turn loop over the moves and choose the move with the highest score
       var bestScore = -10000;
       for(var i = 0; i < moves.length; i++){
