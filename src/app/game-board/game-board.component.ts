@@ -98,7 +98,15 @@ export class GameBoardComponent implements OnInit {
   }
 
   makeComputerMove(){
-    let bestIndex = this.minimax(this.board, 'O');
+    let bestIndex;
+    if(Math.random() > 0.3){
+      console.log('RANDO');
+      bestIndex = this.getRandomMove(this.board);
+    } else{
+      console.log('KILLER MOVE!');
+      bestIndex = this.minimax(this.board, 'O');
+    }
+
     if(bestIndex.index != null){
       this.currentPlayer = this.PlayerTwo;
       this.clickSquare(this.board[bestIndex.index]);
@@ -160,7 +168,15 @@ export class GameBoardComponent implements OnInit {
   }
 
   // AI for Computer moves
-  // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
+  getRandomMove(newBoard){
+    var availSpots = this.emptyIndexes(newBoard);
+    if(availSpots){
+      return {index: availSpots[Math.floor(Math.random() * (availSpots.length))]};
+    } else{
+      return null;
+    }
+  }
+
   /**
    * Returns an object that has the index of the best move
    * @param {Object[]} newBoard - The Current Board
