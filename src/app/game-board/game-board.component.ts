@@ -90,7 +90,7 @@ export class GameBoardComponent implements OnInit {
       // this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
       // Makes a computers move if game is not over
       if(player.name == "Player 1"){
-        this.makeComputerMove();
+        setTimeout(() => this.makeComputerMove(), 200);
       } else {
         this.currentPlayer = this.PlayerOne;
       }
@@ -99,7 +99,7 @@ export class GameBoardComponent implements OnInit {
 
   makeComputerMove(){
     let bestIndex = this.minimax(this.board, 'O');
-    if(bestIndex.index){
+    if(bestIndex.index != null){
       this.currentPlayer = this.PlayerTwo;
       this.clickSquare(this.board[bestIndex.index]);
       console.log(this.board);
