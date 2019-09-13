@@ -128,13 +128,13 @@ h2{
   background-color:  rgb(59, 173, 59);
 }
 
-.square .O.winner, .square .X.winner {
-  -webkit-animation: blink .3s steps(1) 3;
-  -moz-animation: blink .3s steps(1) 3;
-  animation: blink .3s steps(1) 3;
-}
+// .square .O.winner, .square .X.winner {
+//   -webkit-animation: blink .3s steps(1) 3;
+//   -moz-animation: blink .3s steps(1) 3;
+//   animation: blink .3s steps(1) 3;
+// }
 
-@keyframes blink{50%{visibility:hidden}}
+// @keyframes blink{50%{visibility:hidden}}
 
 @media all and (max-width: 890px) {
   h2{
