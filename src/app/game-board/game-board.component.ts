@@ -141,4 +141,99 @@ export class GameBoardComponent implements OnInit {
   playSound(sound) {
     this.audio[sound].play()
   }
+
+  // the main minimax function
+  // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
+  /**
+   * Returns an object that has the index of the best move
+   * @param {Object[]} newBoard - The Current Board
+   * @param {string} player - The Symbol of the Computer
+   */
+  minimax(newBoard, player){
+    //available spots
+    var availSpots = emptyIndexies(newBoard);
+
+    // // checks for the terminal states such as win, lose, and tie and returning a value accordingly
+    // // TODO: plug in check win
+    if (winning(newBoard, huPlayer)){
+      return {score:-10};
+    }
+    else if (winning(newBoard, aiPlayer)){
+      return {score:10};
+    }
+    else if (availSpots.length === 0){
+      return {score:0};
+    }
+
+    // an array to collect all the objects
+    var moves = [];
+
+    // loop through available spots
+    // Pushes all available moves into the moves array
+    for (var i = 0; i < availSpots.length; i++){
+      //create an object for each and store the index of that spot that was stored as a number in the object's index key
+      var move = {};
+      move.index = newBoard[availSpots[i]];
+
+      // set the empty spot to the current player
+      newBoard[availSpots[i]] = player;
+
+      //if collect the score resulted from calling minimax on the opponent of the current player
+      if (player == aiPlayer){
+        var result = minimax(newBoard, huPlayer);
+        move.score = result.score;
+      }
+      else{
+        var result = minimax(newBoard, aiPlayer);
+        move.score = result.score;
+      }
+
+      //reset the spot to empty
+      newBoard[availSpots[i]] = move.index;
+
+      // push the object to the array
+      moves.push(move);
+    }
+
+    
+    // Returns the best possible move for either X or O
+    // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
+    var bestMove;
+    if(player === aiPlayer){
+      // if it is the computer's turn loop over the moves and choose the move with the highest score
+      var bestScore = -10000;
+      for(var i = 0; i < moves.length; i++){
+        if(moves[i].score > bestScore){
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    }else{
+      // else loop over the moves and choose the move with the lowest score
+      var bestScore = 10000;
+      for(var i = 0; i < moves.length; i++){
+        if(moves[i].score < bestScore){
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    }
+
+  // return the chosen move (object) from the array to the higher depth
+    return moves[bestMove];
+  }
+
+  // returns the available spots on the 
+  // TODO: Rewrite this to take in a a board Object[] and return an array with the indexes that are empty
+  /**
+   * Returns an array of the empty indexes
+   * @param {string[]} board - 
+   * 
+   */
+  function emptyIndexies(board){
+    // console.log('\nThese are the empty idexes');
+    // console.log(board.filter(s => s != "O" && s != "X"));
+    // console.log(`\n\n`);
+    return  board.filter(s => s != "O" && s != "X");
+  }
 }
