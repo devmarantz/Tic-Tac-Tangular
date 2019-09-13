@@ -86,8 +86,23 @@ export class GameBoardComponent implements OnInit {
       // Handles if there are no moves left
       this.handleDraw();
     else {  
-      //Switches players if game is not over
-      this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
+      // //Switches players if game is not over
+      // this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
+      // Makes a computers move if game is not over
+      if(player.name == "Player 1"){
+        this.makeComputerMove();
+      } else {
+        this.currentPlayer = this.PlayerOne;
+      }
+    }
+  }
+
+  makeComputerMove(){
+    let bestIndex = this.minimax(this.board, 'O');
+    if(bestIndex.index){
+      this.currentPlayer = this.PlayerTwo;
+      this.clickSquare(this.board[bestIndex.index]);
+      console.log(this.board);
     }
   }
 
@@ -97,7 +112,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   // Checks if a player won
-  checkWin(symbol): boolean {
+  checkWin(symbol, test = false): boolean {
     const possibleWins = [
       [0, 1, 2],  //top row
       [3, 4, 5],  //middle row
@@ -117,7 +132,9 @@ export class GameBoardComponent implements OnInit {
       if(foundWinner) {
         // Gives winning indexs a "winner" attribute
         for(let index of pattern) {
-          this.board[index].winner = true;
+          if(!test){
+            this.board[index].winner = true;
+          }
         }
         return true;
       }
@@ -155,10 +172,10 @@ export class GameBoardComponent implements OnInit {
 
     // checks for the terminal states such as win, lose, and tie and returning a value accordingly
     // This is for the recursive function
-    if (this.checkWin('O')){
+    if (this.checkWin('O', true)){
       return {score:-10};
     }
-    else if (this.checkWin('X')){
+    else if (this.checkWin('X', true)){
       return {score:10};
     }
     else if (availSpots.length === 0){
