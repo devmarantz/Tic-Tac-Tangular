@@ -86,8 +86,23 @@ export class GameBoardComponent implements OnInit {
       // Handles if there are no moves left
       this.handleDraw();
     else {  
-      //Switches players if game is not over
-      this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
+      // //Switches players if game is not over
+      // this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
+      // Makes a computers move if game is not over
+      if(player.name == "Player 1"){
+        setTimeout(() => this.makeComputerMove(), 200);
+      } else {
+        this.currentPlayer = this.PlayerOne;
+      }
+    }
+  }
+
+  makeComputerMove(){
+    let bestIndex = this.minimax(this.board, 'O');
+    if(bestIndex.index != null){
+      this.currentPlayer = this.PlayerTwo;
+      this.clickSquare(this.board[bestIndex.index]);
+      console.log(this.board);
     }
   }
 
@@ -97,7 +112,7 @@ export class GameBoardComponent implements OnInit {
   }
 
   // Checks if a player won
-  checkWin(symbol): boolean {
+  checkWin(symbol, test = false): boolean {
     const possibleWins = [
       [0, 1, 2],  //top row
       [3, 4, 5],  //middle row
@@ -117,7 +132,9 @@ export class GameBoardComponent implements OnInit {
       if(foundWinner) {
         // Gives winning indexs a "winner" attribute
         for(let index of pattern) {
-          this.board[index].winner = true;
+          if(!test){
+            this.board[index].winner = true;
+          }
         }
         return true;
       }
@@ -140,5 +157,108 @@ export class GameBoardComponent implements OnInit {
 
   playSound(sound) {
     this.audio[sound].play()
+  }
+
+  // AI for Computer moves
+  // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
+  /**
+   * Returns an object that has the index of the best move
+   * @param {Object[]} newBoard - The Current Board
+   * @param {string} player - The Symbol of the Computer
+   */
+  minimax(newBoard, player){
+    //available spots
+    var availSpots = this.emptyIndexes(newBoard);
+
+    // checks for the terminal states such as win, lose, and tie and returning a value accordingly
+    // This is for the recursive function
+    if (this.checkWin('O', true)){
+      return {score:-10};
+    }
+    else if (this.checkWin('X', true)){
+      return {score:10};
+    }
+    else if (availSpots.length === 0){
+      return {score:0};
+    }
+
+    // an array to collect all the objects
+    var moves = [];
+
+    // loop through available spots
+    // Pushes all available moves into the moves array
+    for (var i = 0; i < availSpots.length; i++){
+      //create an object for each and store the index of that spot that was stored as a number in the object's index key
+      var move = {
+        index: null,
+        score: null
+      };
+  
+      // move.index = newBoard[availSpots[i]];
+      move.index = availSpots[i];
+  
+      // set the empty spot to the current player
+      newBoard[availSpots[i]].value = player;
+  
+      //if collect the score resulted from calling minimax on the opponent of the current player
+      if (player == 'X'){
+        var result = this.minimax(newBoard, 'O');
+        move.score = result.score;
+      }
+      else{
+        var result = this.minimax(newBoard, 'X');
+        move.score = result.score;
+      }
+  
+      //reset the spot to empty
+      newBoard[availSpots[i]].value = '';
+  
+      // push the object to the array
+      moves.push(move);
+    }
+
+    
+    // Returns the best possible move for either X or O
+    // Assumes aiPlayer = 'X'  and  huPlayer = 'O'
+    var bestMove;
+    if(player === 'X'){
+      // if it is the computer's turn loop over the moves and choose the move with the highest score
+      var bestScore = -10000;
+      for(var i = 0; i < moves.length; i++){
+        if(moves[i].score > bestScore){
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    }else{
+      // else loop over the moves and choose the move with the lowest score
+      var bestScore = 10000;
+      for(var i = 0; i < moves.length; i++){
+        if(moves[i].score < bestScore){
+          bestScore = moves[i].score;
+          bestMove = i;
+        }
+      }
+    }
+
+  // return the chosen move (object) from the array to the higher depth
+    return moves[bestMove];
+  }
+
+  // returns the available spots on the 
+  // TODO: Rewrite this to take in a a board Object[] and return an array with the indexes that are empty
+  /**
+   * Returns an array of the empty indexes
+   * @param {string[]} board - Any board
+   * 
+   */
+  emptyIndexes(board){
+    const indexes = [];
+    board.forEach((object, i) => {
+      if(object.value == '' ){
+        indexes.push(i);
+      }
+    });
+    return  indexes;
   }
 }
