@@ -23,12 +23,27 @@ export class GameBoardComponent implements OnInit {
     name: string,
     symbol: string
   };
+  audio = {
+    blip1: new Audio(),
+    blip2: new Audio(),
+    draw: new Audio(),
+    win: new Audio(),
+    restart: new Audio()
+  }
 
   constructor() { }
 
   ngOnInit() {
+    this.initSound(this.audio);
     this.firstGame = true;
     this.resetGame();
+  }
+
+  initSound(audio){
+    Object.keys(audio).map(sound => {
+      audio[sound].src = "../assets/sounds/" + sound + ".wav";
+      audio[sound].load();
+    })
   }
 
   // Intializes game
@@ -52,6 +67,11 @@ export class GameBoardComponent implements OnInit {
   // Handles when square is clicked
   clickSquare(square) {
     if(square.value === '' && this.playing) {
+      if(this.currentPlayer.name == "Player 1"){
+        this.playSound('blip1');
+      } else{
+        this.playSound('blip2');
+      }
       square.value = this.currentPlayer.symbol;
       this.handleMove(this.currentPlayer);
     }
@@ -67,11 +87,6 @@ export class GameBoardComponent implements OnInit {
       this.handleDraw();
     else {  
       //Switches players if game is not over
-      if(player.name == "Player 1"){
-        this.playSound('blip1');
-      } else{
-        this.playSound('blip2');
-      }
       this.currentPlayer = (this.currentPlayer == this.PlayerOne ? this.PlayerTwo : this.PlayerOne);
     }
   }
@@ -124,7 +139,6 @@ export class GameBoardComponent implements OnInit {
   }
 
   playSound(sound) {
-    sound = "../assets/sounds/" + sound + ".wav";
-    sound && ( new Audio(sound) ).play()
+    this.audio[sound].play()
   }
 }
