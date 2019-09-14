@@ -95,7 +95,7 @@ export class GameBoardComponent implements OnInit {
       if(player.name == "Player 1"){
         setTimeout(() => {
           this.makeComputerMove();
-        }, 500);
+        }, 808);
       } else {
         this.currentPlayer = this.PlayerOne;
       }
@@ -104,7 +104,7 @@ export class GameBoardComponent implements OnInit {
 
   makeComputerMove(){
     let bestIndex;
-    if(Math.random() > 0.7){
+    if(Math.random() > 0.5){
       bestIndex = this.getRandomMove(this.board);
     } else{
       bestIndex = this.minimax(this.board, 'O');
