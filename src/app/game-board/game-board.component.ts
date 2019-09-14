@@ -104,11 +104,9 @@ export class GameBoardComponent implements OnInit {
 
   makeComputerMove(){
     let bestIndex;
-    if(Math.random() > 0.3){
-      console.log('RANDO');
+    if(Math.random() > 0.7){
       bestIndex = this.getRandomMove(this.board);
     } else{
-      console.log('KILLER MOVE!');
       bestIndex = this.minimax(this.board, 'O');
     }
 
@@ -116,7 +114,6 @@ export class GameBoardComponent implements OnInit {
       this.currentPlayer = this.PlayerTwo;
       this.locked = false;
       this.clickSquare(this.board[bestIndex.index]);
-      console.log(this.board);
     }
   }
 
