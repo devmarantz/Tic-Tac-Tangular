@@ -104,7 +104,7 @@ export class GameBoardComponent implements OnInit {
 
   makeComputerMove(){
     let bestIndex;
-    if(Math.random() > 0.4){
+    if(Math.random() > 0.7){
       bestIndex = this.getRandomMove(this.board);
     } else{
       bestIndex = this.minimax(this.board, 'O');
