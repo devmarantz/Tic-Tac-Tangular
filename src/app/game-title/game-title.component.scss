@@ -1,0 +1,107 @@
+h2, p{
+  text-align: center;
+}
+
+.titleBorder{
+  width: 42rem;
+  height: 8.5rem;
+  margin: auto;
+  margin-top: -2rem;
+  border: 6px solid;
+}
+
+.titleBorderDark{
+  border-color: black;
+  box-shadow: 0 0 50px #d1ff00, inset 0 0 50px #d1ff00;
+  animation: blink 6s alternate infinite;
+  animation-delay: 3s;
+}
+
+@keyframes blink {
+  0%, 2%, 4%, 6%, 30%, 32%, 75%, 77%, 100% {opacity: 1}
+  3%, 5%, 31%, 76% {opacity: 0.7}
+}
+
+.gameTitle{
+  font-size: 69px;
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.description{
+  font-size: 30px;
+  margin-top: 0rem;
+  margin-bottom: 1.2rem;
+  color: #1a1a1a;
+}
+
+.titleDark{
+  color: black;
+  text-shadow: 0 0 10px white, 0 0 60px #00ff33, 0 0 30px #00ff33;
+  animation-delay: 1s;
+  animation: blink 6s alternate-reverse infinite;
+}
+
+@media all and (max-width: 890px) {
+  .titleBorder{
+    width: 32rem;
+    height: 6.5rem;
+  }
+  .gameTitle{
+    font-size: 52px;
+  }
+  .description{
+    font-size: 22px;
+  }
+}
+
+@media all and (max-width: 730px) {
+  .darkModeToggle {
+    padding: 1rem 1rem;
+    height: 2rem;
+  }
+  .titleBorder{
+    margin-top: 0rem;
+  }
+}
+
+@media all and (max-width: 560px) {
+  .titleBorder{
+    width: 90%;
+    height: 6rem;
+  }
+  .gameTitle{
+    font-size: 47px;
+  }
+  .description{
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .darkModeToggle {
+    height: 25px;
+  }
+  .titleBorder{
+    height: 5rem;
+  }
+  .gameTitle{
+    font-size: 38px;
+  }
+  .description{
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .titleBorder{
+    height: 4rem;
+  }
+  .gameTitle{
+    font-size: 32px;
+  }
+  .description{
+    font-size: 13px;
+  }
+}
