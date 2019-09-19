@@ -1,0 +1,229 @@
+h2, p{
+  text-align: center;
+}
+
+// Title
+
+.titleBorder{
+  width: 42rem;
+  height: 8.5rem;
+  margin: auto;
+  margin-top: -2rem;
+  border: 6px solid;
+}
+
+.titleBorderDark{
+  border-color: black;
+  box-shadow: 0 0 50px #d1ff00, inset 0 0 50px #d1ff00;
+  animation: blink 6s alternate infinite;
+  animation-delay: 3s;
+}
+
+@keyframes blink {
+  0%, 2%, 4%, 6%, 30%, 32%, 75%, 77%, 100% {opacity: 1}
+  3%, 5%, 31%, 76% {opacity: 0.7}
+}
+
+.gameTitle{
+  font-size: 69px;
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.description{
+  font-size: 30px;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.titleDark{
+  color: black;
+  text-shadow: 0 0 10px white, 0 0 60px #00ff33, 0 0 30px #00ff33;
+  animation-delay: 1s;
+  animation: blink 6s alternate-reverse infinite;
+}
+
+// With Scoreboard
+.scoreboard{
+  display: flex;
+  justify-content: space-around;
+}
+
+.titleScoreboard{
+  border-left: 6px solid;
+  border-right: 6px solid;
+  height: 8.5rem;
+  padding: 0 2rem 0 2rem;
+}
+
+.playerTitle{
+  font-size: 55px;
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.playerScore{
+  font-size: 60px;
+  margin-top: 0rem;
+  color: #1a1a1a;
+}
+
+.scoreGameTitle{
+  font-size: 55px;
+  margin-top: 10px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.scoreDescription{
+  font-size: 23px;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+
+
+// Media Queries
+
+@media all and (max-width: 890px) {
+  // Title
+  .titleBorder{
+    width: 32rem;
+    height: 6.5rem;
+  }
+  .gameTitle{
+    font-size: 52px;
+  }
+  .description{
+    font-size: 22px;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 6.5rem;
+    padding: 0 2rem 0 2rem;
+  }
+  .playerTitle{
+    font-size: 43px;
+  }
+  .playerScore{
+    font-size: 44px;
+  }
+  .scoreGameTitle{
+    font-size: 42px;
+  }
+  .scoreDescription{
+    font-size: 17px;
+  }
+}
+
+@media all and (max-width: 730px) {
+  // Title
+  .darkModeToggle {
+    padding: 1rem 1rem;
+    height: 2rem;
+  }
+  .titleBorder{
+    margin-top: 0rem;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 6.5rem;
+    padding: 0 1rem 0 1rem;
+  }
+  .playerTitle{
+    font-size: 37px;
+  }
+  .playerScore{
+    font-size: 37px;
+  }
+  .scoreGameTitle{
+    font-size: 38px;
+  }
+  .scoreDescription{
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 560px) {
+  // Title
+  .titleBorder{
+    width: 90%;
+    height: 6rem;
+  }
+  .gameTitle{
+    font-size: 47px;
+  }
+  .description{
+    font-size: 20px;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 6rem;
+  }
+  .scoreGameTitle{
+    font-size: 36px;
+  }
+  .scoreDescription{
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  // Title
+  .darkModeToggle {
+    height: 25px;
+  }
+  .titleBorder{
+    height: 5rem;
+  }
+  .gameTitle{
+    font-size: 38px;
+  }
+  .description{
+    font-size: 16px;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 5rem;
+    padding: 0 1rem 0 1rem;
+  }
+  .playerTitle, .playerScore{
+    font-size: 33px;
+  }
+  .scoreGameTitle{
+    font-size: 30px;
+  }
+  .scoreDescription{
+    font-size: 12px;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .titleBorder{
+    height: 4rem;
+  }
+  .gameTitle{
+    font-size: 32px;
+  }
+  .description{
+    font-size: 13px;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 4rem;
+    padding: 0 0.5rem 0 0.5rem;
+  }
+  .playerTitle, .playerScore{
+    font-size: 25px;
+  }
+  .scoreGameTitle{
+    font-size: 25px;
+  }
+  .scoreDescription{
+    font-size: 10px;
+  }
+}

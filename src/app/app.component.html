@@ -4,10 +4,6 @@
       <div class="inner"  [class.toggleInner]="darkMode" (click)="handleInner()"></div>
     </div>
   </div>
-  
-  <div class="titleBorder" [class.titleBorderDark]="darkMode">
-    <h2 class="gameTitle" [class.titleDark]="darkMode">Tic-Tac-Tangular</h2>
-    <p class="description" [class.titleDark]="darkMode">A family classic on a modern framework</p>
-  </div>
-  <app-game-board [darkMode]="darkMode"></app-game-board>
-</div>
+  <app-game-title [darkMode]="darkMode" [score]="score" [showScore]="showScore"></app-game-title>
+  <app-game-board [darkMode]="darkMode" (updateScore)='changeScore($event)'></app-game-board>
+</div> 

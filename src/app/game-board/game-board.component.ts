@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-game-board',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GameBoardComponent implements OnInit {
   @Input() darkMode;
+  @Output() updateScore = new EventEmitter();
   PlayerOne = { name: "Player 1", symbol: 'X'};
   PlayerTwo = { name: "Player 2", symbol: 'O'};
 
@@ -24,19 +25,27 @@ export class GameBoardComponent implements OnInit {
     name: string,
     symbol: string
   };
+  score: {
+    playerOne: number,
+    playerTwo: number
+  };
   audio = {
     blip1: new Audio(),
     blip2: new Audio(),
     draw: new Audio(),
     win: new Audio(),
     restart: new Audio()
-  }
+  };
 
   constructor() { }
 
   ngOnInit() {
     this.initSound(this.audio);
     this.firstGame = true;
+    this.score = {
+      playerOne: 0,
+      playerTwo: 0,
+    };
     this.resetGame();
   }
 
@@ -49,6 +58,8 @@ export class GameBoardComponent implements OnInit {
 
   // Intializes game
   resetGame() {
+    console.log(`Player 1: ${this.score.playerOne}`);
+    console.log(`Player 2: ${this.score.playerTwo}`);
     if(!this.firstGame){
       this.playSound('restart');
     }
@@ -157,6 +168,12 @@ export class GameBoardComponent implements OnInit {
   handleWin(winner) {
     this.playSound('win');
     this.playing = false;
+    if(winner.name == 'Player 1'){
+      this.score.playerOne++;
+    } else {
+      this.score.playerTwo++;
+    }
+    this.updateScore.emit({ score: this.score });
     this.latestWinner = winner; 
   }
 
