@@ -5,5 +5,5 @@
     </div>
   </div>
   <app-game-title [darkMode]="darkMode"></app-game-title>
-  <app-game-board [darkMode]="darkMode"></app-game-board>
-</div>
+  <app-game-board [darkMode]="darkMode" (updateScore)='changeScore($event)'></app-game-board>
+</div> 

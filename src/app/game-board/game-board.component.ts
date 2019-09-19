@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-game-board',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GameBoardComponent implements OnInit {
   @Input() darkMode;
+  @Output() updateScore = new EventEmitter();
   PlayerOne = { name: "Player 1", symbol: 'X'};
   PlayerTwo = { name: "Player 2", symbol: 'O'};
 
@@ -172,6 +173,7 @@ export class GameBoardComponent implements OnInit {
     } else {
       this.score.playerTwo++;
     }
+    this.updateScore.emit({ score: this.score });
     this.latestWinner = winner; 
   }
 
