@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tic-tac-tangular';
   darkMode = false; 
-  showScore = true;
+  showScore = false;
   score = {
     playerOne: 0,
     playerTwo: 0

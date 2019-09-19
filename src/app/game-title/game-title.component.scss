@@ -212,4 +212,18 @@ h2, p{
   .description{
     font-size: 13px;
   }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 4rem;
+    padding: 0 0.5rem 0 0.5rem;
+  }
+  .playerTitle, .playerScore{
+    font-size: 25px;
+  }
+  .scoreGameTitle{
+    font-size: 25px;
+  }
+  .scoreDescription{
+    font-size: 10px;
+  }
 }
