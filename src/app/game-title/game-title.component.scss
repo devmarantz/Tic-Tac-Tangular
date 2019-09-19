@@ -34,7 +34,7 @@ h2, p{
 .description{
   font-size: 30px;
   margin-top: 0rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0rem;
   color: #1a1a1a;
 }
 
@@ -45,9 +45,44 @@ h2, p{
   animation: blink 6s alternate-reverse infinite;
 }
 
-// Scoreboard
+// With Scoreboard
 .scoreboard{
   display: flex;
+  justify-content: space-around;
+}
+
+.titleScoreboard{
+  border-left: 6px solid;
+  border-right: 6px solid;
+  height: 8.5rem;
+  padding: 0 2rem 0 2rem;
+}
+
+.playerTitle{
+  font-size: 55px;
+  margin-top: 0px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.playerScore{
+  font-size: 60px;
+  margin-top: 0rem;
+  color: #1a1a1a;
+}
+
+.scoreGameTitle{
+  font-size: 55px;
+  margin-top: 10px;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
+}
+
+.scoreDescription{
+  font-size: 23px;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  color: #1a1a1a;
 }
 
 
@@ -55,6 +90,7 @@ h2, p{
 // Media Queries
 
 @media all and (max-width: 890px) {
+  // Title
   .titleBorder{
     width: 32rem;
     height: 6.5rem;
@@ -65,6 +101,7 @@ h2, p{
   .description{
     font-size: 22px;
   }
+  // With Scoreboard
 }
 
 @media all and (max-width: 730px) {

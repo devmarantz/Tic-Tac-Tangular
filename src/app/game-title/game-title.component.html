@@ -4,13 +4,17 @@
     <p class="description" [class.titleDark]="darkMode">A family classic on a modern framework</p>
   </div>
   <div class="scoreboard" *ngIf="showScore">
-      <div class="playerOneScore">
-        <h2 class="playerOneScore" [class.titleDark]="darkMode">P1(X)</h2>
-        <p class="playerTwoScore" [class.titleDark]="darkMode">{{score.playerOne}}</p>
+      <div class="playerOne">
+        <h2 class="playerTitle" [class.titleDark]="darkMode">X</h2>
+        <p class="playerScore" [class.titleDark]="darkMode">{{score.playerOne}}</p>
       </div>
-      <div class="playerTwoScore">
-        <h2 class="playerOneScore" [class.titleDark]="darkMode">P2(O)</h2>
-        <p class="playerTwoScore" [class.titleDark]="darkMode">{{score.playerTwo}}</p>
+      <div class="titleScoreboard">
+        <h2 class="scoreGameTitle" [class.titleDark]="darkMode">Tic-Tac-Tangular</h2>
+        <p class="scoreDescription" [class.titleDark]="darkMode">A family classic on a modern framework</p>
+      </div>
+      <div class="playerTwo">
+        <h2 class="playerTitle" [class.titleDark]="darkMode">O</h2>
+        <p class="playerScore" [class.titleDark]="darkMode">{{score.playerTwo}}</p>
       </div>
   </div>
 </div>
