@@ -102,9 +102,26 @@ h2, p{
     font-size: 22px;
   }
   // With Scoreboard
+  .titleScoreboard{
+    height: 6.5rem;
+    padding: 0 2rem 0 2rem;
+  }
+  .playerTitle{
+    font-size: 43px;
+  }
+  .playerScore{
+    font-size: 44px;
+  }
+  .scoreGameTitle{
+    font-size: 42px;
+  }
+  .scoreDescription{
+    font-size: 17px;
+  }
 }
 
 @media all and (max-width: 730px) {
+  // Title
   .darkModeToggle {
     padding: 1rem 1rem;
     height: 2rem;
@@ -112,9 +129,27 @@ h2, p{
   .titleBorder{
     margin-top: 0rem;
   }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 6.5rem;
+    padding: 0 1rem 0 1rem;
+  }
+  .playerTitle{
+    font-size: 37px;
+  }
+  .playerScore{
+    font-size: 37px;
+  }
+  .scoreGameTitle{
+    font-size: 38px;
+  }
+  .scoreDescription{
+    font-size: 15px;
+  }
 }
 
 @media all and (max-width: 560px) {
+  // Title
   .titleBorder{
     width: 90%;
     height: 6rem;
@@ -125,9 +160,20 @@ h2, p{
   .description{
     font-size: 20px;
   }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 6rem;
+  }
+  .scoreGameTitle{
+    font-size: 36px;
+  }
+  .scoreDescription{
+    font-size: 14px;
+  }
 }
 
 @media all and (max-width: 450px) {
+  // Title
   .darkModeToggle {
     height: 25px;
   }
@@ -139,6 +185,20 @@ h2, p{
   }
   .description{
     font-size: 16px;
+  }
+  // With Scoreboard
+  .titleScoreboard{
+    height: 5rem;
+    padding: 0 1rem 0 1rem;
+  }
+  .playerTitle, .playerScore{
+    font-size: 33px;
+  }
+  .scoreGameTitle{
+    font-size: 30px;
+  }
+  .scoreDescription{
+    font-size: 12px;
   }
 }
 
