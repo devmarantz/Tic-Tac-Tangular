@@ -7,6 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GameTitleComponent implements OnInit {
   @Input() darkMode;
+  @Input() showScore: boolean;
+  @Input() score: object;
+
 
   constructor() { }
 
