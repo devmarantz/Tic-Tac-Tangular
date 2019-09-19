@@ -4,7 +4,13 @@
     <p class="description" [class.titleDark]="darkMode">A family classic on a modern framework</p>
   </div>
   <div class="scoreboard" *ngIf="showScore">
-      <h2 class="gameTitle" [class.titleDark]="darkMode">scoreboard</h2>
-      <p class="description" [class.titleDark]="darkMode">this should show the score</p>
+      <div class="playerOneScore">
+        <h2 class="playerOneScore" [class.titleDark]="darkMode">P1(X)</h2>
+        <p class="playerTwoScore" [class.titleDark]="darkMode">{{score.playerOne}}</p>
+      </div>
+      <div class="playerTwoScore">
+        <h2 class="playerOneScore" [class.titleDark]="darkMode">P2(O)</h2>
+        <p class="playerTwoScore" [class.titleDark]="darkMode">{{score.playerTwo}}</p>
+      </div>
   </div>
 </div>

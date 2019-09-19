@@ -2,6 +2,8 @@ h2, p{
   text-align: center;
 }
 
+// Title
+
 .titleBorder{
   width: 42rem;
   height: 8.5rem;
@@ -42,6 +44,15 @@ h2, p{
   animation-delay: 1s;
   animation: blink 6s alternate-reverse infinite;
 }
+
+// Scoreboard
+.scoreboard{
+  display: flex;
+}
+
+
+
+// Media Queries
 
 @media all and (max-width: 890px) {
   .titleBorder{
