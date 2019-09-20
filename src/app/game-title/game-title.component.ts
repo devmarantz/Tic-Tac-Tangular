@@ -13,6 +13,7 @@ export class GameTitleComponent implements OnInit {
 
   constructor() { }
 
+  // TODO:
   ngOnInit() {
   }
 
