@@ -8,12 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GameTitleComponent implements OnInit {
   @Input() darkMode;
   @Input() showScore: boolean;
-  @Input() score: object;
+  @Input() score: {
+    playerOne: number,
+    playerTwo: number
+  };
 
 
   constructor() { }
 
-  // TODO:
   ngOnInit() {
   }
 
