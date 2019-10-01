@@ -93,6 +93,7 @@ export class GameBoardComponent implements OnInit {
 
   // Handles Move made by a player
   handleMove(player) {
+    this.currentPlayer = this.PlayerTwo;
     if(this.checkWin(player.symbol)) 
       //Handles win if somebody won
       this.handleWin(player);
